@@ -6,9 +6,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=rootme
     volumes:
-      - type: bind
-        source: ./data
-        target: /data/db
+    - simple-pos:/data/db
     ports:
     - '27017:27017'
 
@@ -22,3 +20,6 @@ services:
       - db
     volumes:
       - ./src:/app/src
+volumes : 
+  simple-pos:
+    driver : local
